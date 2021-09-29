@@ -1,0 +1,47 @@
+
+
+create database project3;
+use project3;
+
+
+CREATE TABLE vacations (
+	id int  AUTO_INCREMENT,
+	descrip text DEFAULT NULL,
+   place varchar(255) ,
+  picture varchar(255) ,
+   price varchar(255) ,
+   start_date date ,
+   end_date date ,
+   PRIMARY KEY (id)
+ ) ;
+
+ CREATE TABLE users (
+ id int  AUTO_INCREMENT,
+username varchar(255),
+  fname varchar(255),
+   lname varchar(255) ,
+   password varchar(255),
+    is_admin bool DEFAULT 0,
+  PRIMARY KEY (id)
+ ) ;
+
+
+CREATE TABLE followers (
+   id int  AUTO_INCREMENT,
+   vacation_id int,
+   user_id int,
+PRIMARY KEY (id),
+  
+ 
+FOREIGN KEY (vacation_id) REFERENCES vacations(id),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+ ) ;
+
+
+
+
+
+insert into users(username,fname,lname,password,is_admin)
+values('admin','sr','admin','$2b$10$iG.x42UjBv4u9bINQGOfxuPI9ZoH..8vEoRxBub7ggsARW3qRxjNy',1)
+
+
